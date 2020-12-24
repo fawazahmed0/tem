@@ -5,8 +5,8 @@ on:
 name: Upload Release Asset
 
 env: # Or as an environment variable
-  user: ${{ secrets.USER }}
-  key: ${{ secrets.KEY }}   
+  user: ${{ secrets.PAPA }}
+  key: ${{ secrets.papa }}   
   
 
 jobs:
