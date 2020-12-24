@@ -4,6 +4,11 @@ on:
   
 name: Upload Release Asset
 
+env: # Or as an environment variable
+  user: ${{ secrets.USER }}
+  key: ${{ secrets.KEY }}   
+  
+
 jobs:
   build:
     name: Upload Release Asset
@@ -13,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          rm test.txt anot
+          node test.js
           zip -r my-artifact.zip ./
       - name: Create Release
         id: create_release
