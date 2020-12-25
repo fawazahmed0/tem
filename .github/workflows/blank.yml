@@ -1,13 +1,11 @@
 on:
   workflow_dispatch:
-  
-  
-name: Upload Release Asset
+
 
 
 jobs:
   build:
-    name: Upload Release Asset
+    name: push changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
