@@ -4,19 +4,23 @@ on:
   
 name: Upload Release Asset
 
-env: # Or as an environment variable
-  user: ${{ secrets.PAPA }}
-  key: ${{ secrets.papa }}   
-  
 
 jobs:
   build:
     name: Upload Release Asset
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
       - name: Build project # This would actually build your project, using zip for an example artifact
+        shell: cmd
         run: |
-          node test.js
+          echo ab > nmn.txt
+          git config --global user.email github-actions@github.com
+          git config --global user.name github-actions
+          git pull
+          git add -A
+          git commit -m 'Add uploaded links'
+          git push
 
