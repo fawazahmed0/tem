@@ -10,11 +10,11 @@ jobs:
     name: Upload Release Asset
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+
         
-      - name: Build project # This would actually build your project, using zip for an example artifact
-        shell: bash
+        
+      - uses: actions/checkout@v2
+      - shell: bash
         run: |
           echo ab > nmn.txt
           git config --global user.email github-actions@github.com
