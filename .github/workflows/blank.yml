@@ -5,13 +5,13 @@ on:
 
 jobs:
   build:
-    env:
-      tempdir: ${{ runner.temp }} 
     name: push changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
+      - env:
+          tempdir: ${{ runner.temp }} 
+        run: |
           node test.js
           date > generated.txt
           git config user.name github-actions
