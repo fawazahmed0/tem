@@ -4,7 +4,7 @@ on:
 
 
 jobs:
-  build:
+  build1:
     name: push changes
     runs-on: ubuntu-latest
     steps:
@@ -12,10 +12,23 @@ jobs:
       - env:
           tempdir: ${{ runner.temp }} 
         run: |
-          node test.js
-          date > generated.txt
+          echo abc >> test.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
-          git push origin refs/heads/main
+          git push
+  build2:
+    name: etts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - env:
+          tempdir: ${{ runner.temp }} 
+        run: |
+          echo abc >> test.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
