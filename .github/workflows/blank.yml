@@ -19,6 +19,7 @@ jobs:
           git commit -m "generated"
           git push
   build2:
+    needs: build1
     name: etts
     runs-on: ubuntu-latest
     steps:
