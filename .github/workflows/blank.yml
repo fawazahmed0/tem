@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - env:
           tempdir: ${{ env:TEMP }} 
+        shell: pwsh 
         run: |
           echo abc1 >> test.txt
           git config user.name github-actions
